@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZR2R_184_WALL_MARGIN_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="I_CompanyCodeStdVHType" sap:label="Company Code" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CompanyCode"/>
+                </Key>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="CompanyCodeName" sap:label="Company Code"/>
+                <Property Name="CompanyCodeName" Type="Edm.String" MaxLength="25" sap:label="Company Name" sap:quickinfo="Name of Company Code or Company"/>
+            </EntityType>
+            <EntityType Name="z_r2r_184_wall_margin_reportType" sap:label="184: Wall to Wall Margin Report" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="InvoiceNumber"/>
+                    <PropertyRef Name="InvoiceItemNo"/>
+                    <PropertyRef Name="SalesOrderNumber"/>
+                    <PropertyRef Name="SalesOrderItemNo"/>
+                </Key>
+                <Property Name="InvoiceNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Invoice Number" sap:quickinfo="Billing Document"/>
+                <Property Name="InvoiceItemNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:label="Invoice Item Number" sap:quickinfo="Billing Item"/>
+                <Property Name="SalesOrderNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales Order Number" sap:quickinfo="Sales Document"/>
+                <Property Name="SalesOrderItemNo" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:label="Sales Order Item Number" sap:quickinfo="Sales Document Item"/>
+                <Property Name="InvoiceCreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Invoice Creation Date" sap:quickinfo="Date on which the record was created"/>
+                <Property Name="InvoiceBillingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Invoice Billing Date" sap:quickinfo="Billing Date"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:label="Document Currency" sap:quickinfo="SD document currency" sap:semantics="currency-code"/>
+                <Property Name="SOCreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Sales Order Creation Date" sap:quickinfo="Date on which the record was created"/>
+                <Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code" sap:quickinfo="Company Code to Be Billed" sap:value-list="standard"/>
+                <Property Name="SalesOrg" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Organization"/>
+                <Property Name="DistChannel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Distribution Channel"/>
+                <Property Name="Division" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Division"/>
+                <Property Name="SalesOffice" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Sales Office" sap:quickinfo="Sales office"/>
+                <Property Name="SalesGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Sales Group" sap:quickinfo="Sales group"/>
+                <Property Name="Plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant" sap:quickinfo="Plant (Own or External)"/>
+                <Property Name="ShippingPoint" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Shipping Point" sap:quickinfo="Shipping Point / Receiving Point"/>
+                <Property Name="CustomerNumber" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Customer Number" sap:quickinfo="Sold-To Party"/>
+                <Property Name="CustomerGroup" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Customer Group"/>
+                <Property Name="MaterialNumber" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Material Number"/>
+                <Property Name="MaterialGroup" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="Material Group"/>
+                <Property Name="ProductHierarchy" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Product Hierarchy" sap:quickinfo="Product hierarchy"/>
+                <Property Name="BilledQty" Type="Edm.Decimal" Precision="13" Scale="3" sap:label="Billed Quantity" sap:quickinfo="Actual billed quantity"/>
+                <Property Name="SalesUnit" Type="Edm.String" MaxLength="3" sap:label="Sales Unit" sap:quickinfo="Sales unit" sap:semantics="unit-of-measure"/>
+                <Property Name="DSOSellingPrice" Type="Edm.Decimal" Precision="14" Scale="3" sap:unit="Currency" sap:label="DSO Selling Price" sap:quickinfo="Subtotal 1 from pricing procedure for condition"/>
+                <Property Name="DSOPurchasePrice" Type="Edm.Decimal" Precision="14" Scale="3" sap:unit="Currency" sap:label="DSO Purchase Price" sap:quickinfo="Subtotal 5 from pricing procedure for condition"/>
+                <Property Name="DSOProfit" Type="Edm.Decimal" Precision="14" Scale="3" sap:unit="Currency" sap:label="DSO Profit" sap:quickinfo="Subtotal 6 from pricing procedure for condition"/>
+                <Property Name="HVACPurchasePrice" Type="Edm.Decimal" Precision="14" Scale="3" sap:unit="Currency" sap:label="HVAC Purchase Price" sap:quickinfo="Subtotal 3 from pricing procedure for condition"/>
+                <Property Name="HVACSellingPrice" Type="Edm.Decimal" Precision="14" Scale="3" sap:unit="Currency" sap:label="HVAC Selling Price" sap:quickinfo="Subtotal 5 from pricing procedure for condition"/>
+                <Property Name="HVACPRofit" Type="Edm.Decimal" Precision="14" Scale="3" sap:unit="Currency" sap:label="HVAC Profit"/>
+                <Property Name="FActorySellingPrice" Type="Edm.Decimal" Precision="14" Scale="3" sap:unit="Currency" sap:label="Factory Selling Price" sap:quickinfo="Subtotal 3 from pricing procedure for condition"/>
+                <Property Name="FactoryCost" Type="Edm.Decimal" Precision="14" Scale="3" sap:unit="Currency" sap:label="Factory Cost" sap:quickinfo="Subtotal 4 from pricing procedure for condition"/>
+                <Property Name="FactoryMargin" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="Currency" sap:label="Factory Margin"/>
+            </EntityType>
+            <EntityContainer Name="ZR2R_184_WALL_MARGIN_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="I_CompanyCodeStdVH" EntityType="ZR2R_184_WALL_MARGIN_SRV.I_CompanyCodeStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="z_r2r_184_wall_margin_report" EntityType="ZR2R_184_WALL_MARGIN_SRV.z_r2r_184_wall_margin_reportType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="ZR2R_184_WALL_MARGIN_SRV.z_r2r_184_wall_margin_reportType/CompanyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Company Code"/>
+                        <PropertyValue Property="CollectionPath" String="I_CompanyCodeStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/>
+                                    <PropertyValue Property="ValueListProperty" String="CompanyCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CompanyCodeName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZR2R_184_WALL_MARGIN_SRV.ZR2R_184_WALL_MARGIN_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://VHCAGD41CI.HEC.APPS.CARRIER.COM:44300/sap/opu/odata/sap/ZR2R_184_WALL_MARGIN_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://VHCAGD41CI.HEC.APPS.CARRIER.COM:44300/sap/opu/odata/sap/ZR2R_184_WALL_MARGIN_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
